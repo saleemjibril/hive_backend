@@ -7,7 +7,7 @@ export const getCryptoPrices = catchAsync(async (req, res, next) => {
   try {
     // Get symbols from query params or use default
     const { symbols } = req.query;
-    const defaultSymbols = ['bitcoin', 'ethereum', 'binancecoin', 'cardano', 'solana', 'polkadot', 'chainlink', 'polygon', 'avalanche-2', 'uniswap'];
+    const defaultSymbols = ['bitcoin', 'ethereum', 'binancecoin', 'avalanche-2', 'solana', 'sui', 'polkadot', 'the-open-network', 'chainlink', 'tether', 'usd-coin', 'dogecoin'];
     const cryptoSymbols = symbols ? symbols.split(',') : defaultSymbols;
     
     const symbolsString = cryptoSymbols.join(',');
@@ -58,13 +58,15 @@ const formatCoinName = (id) => {
     'bitcoin': 'Bitcoin',
     'ethereum': 'Ethereum',
     'binancecoin': 'BNB',
-    'cardano': 'Cardano',
-    'solana': 'Solana',
-    'polkadot': 'Polkadot',
-    'chainlink': 'Chainlink',
-    'polygon': 'Polygon',
     'avalanche-2': 'Avalanche',
-    'uniswap': 'Uniswap'
+    'solana': 'Solana',
+    'sui': 'Sui',
+    'polkadot': 'Polkadot',
+    'the-open-network': 'Toncoin',
+    'chainlink': 'Chainlink',
+    'tether': 'Tether',
+    'usd-coin': 'USD Coin',
+    'dogecoin': 'Dogecoin'
   };
   return nameMap[id] || id.charAt(0).toUpperCase() + id.slice(1);
 };
@@ -75,13 +77,15 @@ const getSymbolAbbr = (id) => {
     'bitcoin': 'BTC',
     'ethereum': 'ETH',
     'binancecoin': 'BNB',
-    'cardano': 'ADA',
-    'solana': 'SOL',
-    'polkadot': 'DOT',
-    'chainlink': 'LINK',
-    'polygon': 'MATIC',
     'avalanche-2': 'AVAX',
-    'uniswap': 'UNI'
+    'solana': 'SOL',
+    'sui': 'SUI',
+    'polkadot': 'DOT',
+    'the-open-network': 'TON',
+    'chainlink': 'LINK',
+    'tether': 'USDT',
+    'usd-coin': 'USDC',
+    'dogecoin': 'DOGE'
   };
   return symbolMap[id] || id.toUpperCase().slice(0, 4);
 };
